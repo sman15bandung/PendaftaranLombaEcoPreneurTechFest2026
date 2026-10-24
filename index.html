@@ -1,0 +1,46 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pendaftaran EcoPreneur TechFest 2026</title><style>
+:root{--g:#155b3b;--e:#218653;--m:#eaf5ec;--b:#123c8c}*{box-sizing:border-box}body{margin:0;background:#f3f8f4;font:16px Arial,sans-serif;color:#24352b}.hero{padding:34px 20px;background:linear-gradient(120deg,var(--g),#137e70,var(--b));color:white}.wrap{max-width:850px;margin:auto}.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,42px)}.pill{display:inline-block;background:#eaf5ec;color:var(--g);font-weight:bold;border-radius:20px;padding:8px 12px;margin-top:12px}.card{background:white;border:1px solid #d7e7da;border-radius:18px;padding:22px;margin:22px auto;box-shadow:0 12px 30px #153b2510}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-weight:bold;font-size:14px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbdccc;border-radius:9px;font:inherit}textarea{min-height:90px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.choice{border:1px solid #d7e7da;border-radius:12px;padding:12px;background:#fbfefb}.choice input{width:auto}.choice:has(input:checked){background:var(--m);border-color:var(--e)}h2{color:var(--g)}h3{color:var(--b)}.section{border-top:1px solid #e2ece4;margin-top:22px;padding-top:18px}.hidden{display:none!important}button{width:100%;background:var(--g);color:white;border:0;border-radius:10px;padding:14px;font-weight:bold;font-size:16px;margin-top:18px;cursor:pointer}button:disabled{opacity:.6}.notice{padding:12px;border-radius:10px;margin-top:12px}.ok{background:#eaf5ec;color:var(--g)}.err{background:#fff0ef;color:#9e2828}.muted{color:#63766a;font-size:14px}@media(max-width:620px){.grid,.choices{grid-template-columns:1fr}}
+</style></head><body><header class="hero"><div class="wrap"><div>SMAN 15 BANDUNG MEMPERSEMBAHKAN</div><h1>EcoPreneur TechFest 2026</h1><div>Formulir Pendaftaran Kompetisi</div><span class="pill">PENDAFTARAN GRATIS</span></div></header>
+<main class="wrap"><form id="form" class="card"><h2>Data Umum Peserta</h2><p class="muted">Isi data dengan benar. Kolom bertanda * wajib diisi.</p><div class="grid">
+<div class="field"><label>Nama lengkap *</label><input name="full_name" required maxlength="120"></div>
+<div class="field"><label>Asal sekolah *</label><input name="school" required maxlength="180"></div>
+<div class="field"><label>NISN</label><input name="nisn" maxlength="20"></div>
+<div class="field"><label>Kelas *</label><select name="grade" required><option value="">Pilih kelas</option><option>X</option><option>XI</option><option>XII</option><option>Lainnya</option></select></div>
+<div class="field"><label>Kabupaten/Kota *</label><input name="region" required maxlength="100"></div>
+<div class="field"><label>Nomor WhatsApp *</label><input name="whatsapp" required type="tel" maxlength="30"></div>
+<div class="field full"><label>Email aktif *</label><input name="email" required type="email" maxlength="180"></div></div>
+<div class="section"><h2>Pilih Lomba *</h2><div class="choices">
+<label class="choice"><input type="radio" name="competition_choice" value="drawing" required> <b>Lomba Menggambar/Mewarnai</b><div class="muted">SMA/SMK se-KCD VII</div></label>
+<label class="choice"><input type="radio" name="competition_choice" value="ai" required> <b>AI Solution Challenge 2026</b><div class="muted">Kompetisi solusi AI</div></label>
+<label class="choice"><input type="radio" name="competition_choice" value="both" required> <b>Kedua Lomba</b><div class="muted">Isi kedua bagian</div></label>
+</div></div>
+<div id="drawing" class="section hidden"><h3>Lomba Menggambar/Mewarnai</h3><p class="muted">Salah satu rangkaian EcoPreneur TechFest 2026. Pendaftaran gratis.</p><div class="grid">
+<div class="field"><label>Jenjang sekolah *</label><select name="drawing_category"><option value="">Pilih jenjang</option><option>SMA</option><option>SMK</option></select></div>
+<div class="field"><label>Judul karya (opsional)</label><input name="drawing_title" maxlength="180"></div>
+<div class="field full"><label>Catatan untuk panitia (opsional)</label><textarea name="drawing_experience" maxlength="1000"></textarea></div></div></div>
+<div id="ai" class="section hidden"><h3>AI Solution Challenge 2026</h3><p class="muted">Isi data tim dan ide awal. Detail teknis mengikuti panduan resmi lomba.</p><div class="grid">
+<div class="field"><label>Nama tim *</label><input name="team_name" maxlength="120"></div>
+<div class="field"><label>Jumlah anggota tim *</label><select name="team_size"><option value="">Pilih</option><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option></select></div>
+<div class="field"><label>Nama anggota 2</label><input name="member2" maxlength="120"></div>
+<div class="field"><label>Nama anggota 3</label><input name="member3" maxlength="120"></div>
+<div class="field full"><label>Kategori solusi *</label><select name="ai_category"><option value="">Pilih kategori</option><option>Lingkungan</option><option>Kesehatan dan Kesejahteraan</option><option>Literasi Finansial</option></select></div>
+<div class="field full"><label>Judul ide/solusi AI *</label><input name="ai_title" maxlength="200"></div>
+<div class="field full"><label>Masalah yang ingin diselesaikan *</label><textarea name="ai_problem" maxlength="2500"></textarea></div>
+<div class="field full"><label>Ringkasan solusi berbasis AI *</label><textarea name="ai_solution" maxlength="2500"></textarea></div>
+<div class="field full"><label>Tautan proposal/demo (opsional)</label><input name="ai_link" type="url" maxlength="500" placeholder="https://..."></div></div></div>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px"><input name="consent" type="checkbox" required style="width:auto"> Saya menyatakan data benar, memahami pendaftaran ini gratis, dan bersedia mengikuti ketentuan resmi panitia. *</label>
+<button id="submit" type="submit">Kirim Pendaftaran</button><div id="notice"></div></form><p class="muted" style="text-align:center">EcoPreneur TechFest 2026 · SMA Negeri 15 Bandung</p></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script>
+const form=document.querySelector('#form'), drawing=document.querySelector('#drawing'), ai=document.querySelector('#ai'), notice=document.querySelector('#notice'), btn=document.querySelector('#submit');
+const drawReq=['drawing_category'], aiReq=['team_name','team_size','ai_category','ai_title','ai_problem','ai_solution'];
+function setPart(el,show,req){el.classList.toggle('hidden',!show);el.querySelectorAll('input,select,textarea').forEach(x=>{if(req.includes(x.name))x.required=show;if(!show&&x.type!=='checkbox')x.value='';});}
+function update(){let c=form.elements.competition_choice.value;setPart(drawing,c==='drawing'||c==='both',drawReq);setPart(ai,c==='ai'||c==='both',aiReq);}
+form.querySelectorAll('[name=competition_choice]').forEach(x=>x.addEventListener('change',update));
+function val(n){return (form.elements[n]?.value||'').trim()||null}
+form.addEventListener('submit',async e=>{e.preventDefault();notice.className='';notice.textContent='';if(!window.supabase||!window.ECOPRENEUR_CONFIG||(ECOPRENEUR_CONFIG.url.includes('YOUR_PROJECT')||ECOPRENEUR_CONFIG.anonKey.includes('YOUR_SUPABASE'))){notice.className='notice err';notice.textContent='Supabase belum dikonfigurasi. Isi config.js terlebih dahulu.';return}
+let c=form.elements.competition_choice.value;let p={full_name:val('full_name'),school:val('school'),nisn:val('nisn'),grade:val('grade'),region:val('region'),whatsapp:val('whatsapp'),email:val('email'),competition_choice:c,
+drawing_category:['drawing','both'].includes(c)?val('drawing_category'):null,drawing_title:['drawing','both'].includes(c)?val('drawing_title'):null,drawing_experience:['drawing','both'].includes(c)?val('drawing_experience'):null,
+team_name:['ai','both'].includes(c)?val('team_name'):null,team_size:['ai','both'].includes(c)?Number(val('team_size')):null,member2:['ai','both'].includes(c)?val('member2'):null,member3:['ai','both'].includes(c)?val('member3'):null,ai_category:['ai','both'].includes(c)?val('ai_category'):null,ai_title:['ai','both'].includes(c)?val('ai_title'):null,ai_problem:['ai','both'].includes(c)?val('ai_problem'):null,ai_solution:['ai','both'].includes(c)?val('ai_solution'):null,ai_link:['ai','both'].includes(c)?val('ai_link'):null};
+try{btn.disabled=true;btn.textContent='Mengirim...';let db=window.supabase.createClient(ECOPRENEUR_CONFIG.url,ECOPRENEUR_CONFIG.anonKey);let {error}=await db.from('registrations').insert(p);if(error)throw error;form.reset();update();notice.className='notice ok';notice.textContent='Pendaftaran berhasil dikirim. Terima kasih! Pantau WhatsApp/email untuk informasi dari panitia.'}catch(err){notice.className='notice err';notice.textContent='Pendaftaran belum berhasil disimpan. Hubungi panitia atau periksa konfigurasi database. '+err.message}finally{btn.disabled=false;btn.textContent='Kirim Pendaftaran'}});
+update();
+</script></body></html>
