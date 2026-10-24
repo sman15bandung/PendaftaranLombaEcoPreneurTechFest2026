@@ -15,8 +15,6 @@
 <label class="choice"><input type="radio" name="competition_choice" value="both" required> <b>Kedua Lomba</b><div class="muted">Isi kedua bagian</div></label>
 </div></div>
 <div id="drawing" class="section hidden"><h3>Lomba Menggambar/Mewarnai</h3><p class="muted">Salah satu rangkaian EcoPreneur TechFest 2026. Pendaftaran gratis.</p><div class="grid">
-<div class="field"><label>Jenjang sekolah *</label><select name="drawing_category"><option value="">Pilih jenjang</option><option>SMA</option><option>SMK</option></select></div>
-<div class="field"><label>Judul karya (opsional)</label><input name="drawing_title" maxlength="180"></div>
 <div class="field full"><label>Catatan untuk panitia (opsional)</label><textarea name="drawing_experience" maxlength="1000"></textarea></div></div></div>
 <div id="ai" class="section hidden"><h3>AI Solution Challenge 2026</h3><p class="muted">Isi data tim dan ide awal. Detail teknis mengikuti panduan resmi lomba.</p><div class="grid">
 <div class="field"><label>Nama tim *</label><input name="team_name" maxlength="120"></div>
@@ -32,14 +30,14 @@
 <button id="submit" type="submit">Kirim Pendaftaran</button><div id="notice"></div></form><p class="muted" style="text-align:center">EcoPreneur TechFest 2026 · SMA Negeri 15 Bandung</p></main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script>
 const form=document.querySelector('#form'), drawing=document.querySelector('#drawing'), ai=document.querySelector('#ai'), notice=document.querySelector('#notice'), btn=document.querySelector('#submit');
-const drawReq=['drawing_category'], aiReq=['team_name','team_size','ai_category','ai_title','ai_problem','ai_solution'];
+const drawReq=[], aiReq=['team_name','team_size','ai_category','ai_title','ai_problem','ai_solution'];
 function setPart(el,show,req){el.classList.toggle('hidden',!show);el.querySelectorAll('input,select,textarea').forEach(x=>{if(req.includes(x.name))x.required=show;if(!show&&x.type!=='checkbox')x.value='';});}
 function update(){let c=form.elements.competition_choice.value;setPart(drawing,c==='drawing'||c==='both',drawReq);setPart(ai,c==='ai'||c==='both',aiReq);}
 form.querySelectorAll('[name=competition_choice]').forEach(x=>x.addEventListener('change',update));
 function val(n){return (form.elements[n]?.value||'').trim()||null}
 form.addEventListener('submit',async e=>{e.preventDefault();notice.className='';notice.textContent='';if(!window.supabase||!window.ECOPRENEUR_CONFIG||(ECOPRENEUR_CONFIG.url.includes('YOUR_PROJECT')||ECOPRENEUR_CONFIG.anonKey.includes('YOUR_SUPABASE'))){notice.className='notice err';notice.textContent='Supabase belum dikonfigurasi. Isi config.js terlebih dahulu.';return}
 let c=form.elements.competition_choice.value;let p={full_name:val('full_name'),school:val('school'),nisn:val('nisn'),grade:val('grade'),region:val('region'),whatsapp:val('whatsapp'),email:val('email'),competition_choice:c,
-drawing_category:['drawing','both'].includes(c)?val('drawing_category'):null,drawing_title:['drawing','both'].includes(c)?val('drawing_title'):null,drawing_experience:['drawing','both'].includes(c)?val('drawing_experience'):null,
+drawing_experience:['drawing','both'].includes(c)?val('drawing_experience'):null,
 team_name:['ai','both'].includes(c)?val('team_name'):null,team_size:['ai','both'].includes(c)?Number(val('team_size')):null,member2:['ai','both'].includes(c)?val('member2'):null,member3:['ai','both'].includes(c)?val('member3'):null,ai_category:['ai','both'].includes(c)?val('ai_category'):null,ai_title:['ai','both'].includes(c)?val('ai_title'):null,ai_problem:['ai','both'].includes(c)?val('ai_problem'):null,ai_solution:['ai','both'].includes(c)?val('ai_solution'):null,ai_link:['ai','both'].includes(c)?val('ai_link'):null};
 try{btn.disabled=true;btn.textContent='Mengirim...';let db=window.supabase.createClient(ECOPRENEUR_CONFIG.url,ECOPRENEUR_CONFIG.anonKey);let {error}=await db.from('registrations').insert(p);if(error)throw error;form.reset();update();notice.className='notice ok';notice.textContent='Pendaftaran berhasil dikirim. Terima kasih! Pantau WhatsApp/email untuk informasi dari panitia.'}catch(err){notice.className='notice err';notice.textContent='Pendaftaran belum berhasil disimpan. Hubungi panitia atau periksa konfigurasi database. '+err.message}finally{btn.disabled=false;btn.textContent='Kirim Pendaftaran'}});
 update();
